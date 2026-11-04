@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Where It's Buried | The Fine Print</title>
+<meta name="description" content="AI language isn't at the top of these documents, and it's rarely under a heading that mentions AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<nav class="tabs" aria-label="Case files"><a class="home" href="index.html">The Fine Print</a><a class="tab" href="arrival.html"><b>01</b>The Confessions</a><a class="tab" href="vocabulary.html"><b>02</b>The Wiretap</a><a class="tab" href="hedging.html"><b>03</b>The Interrogation</a><a class="tab" href="readability.html"><b>04</b>The Paper Trail</a><a class="tab" href="placement.html" aria-current="page"><b>05</b>Where It's Buried</a><a class="tab" href="churn.html"><b>06</b>The Stakeout</a><a class="tab" href="templates.html"><b>07</b>The Accomplices</a><a class="tab" href="model.html"><b>08</b>The Polygraph</a><a class="tab" href="methods.html"><b>09</b>Case Notes</a></nav>
+<main class="file"><span class="stamp big headstamp" data-slam>mid-file</span><div class="casehead"><span>CASE FILE 05</span><span>THE FINE PRINT</span><span>FILED BY I. MAINI, NOV 2026</span></div><h1 data-type>Where It's Buried</h1><p class="dek">AI language isn't at the top of these documents, and it's rarely under a heading that mentions AI.</p><p>If you skim a policy, you read the start and maybe the headings. So I measured where AI sentences fall within each current document, from 0 (the first sentence) to 1 (the last), and which heading they sit under.</p>
+<h2>The dig</h2><p>The box is a document, from its first line to its last. The red layers are where its AI sentences turn up, all current documents stacked together; the dark core is training clauses. Hardly any of it is near the top, where people stop reading.</p><div id="dig" class="evidence"><div class="label">Exhibit A: excavation</div><div class="chart" id="digChart"></div></div>
+
+<figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="depth"></div><figcaption id="depthNote"></figcaption></figure>
+<p>There's no strong pattern of burying AI language at the very end. It's spread through the middle of the documents. The median training clause sits <span id="medC"></span> of the way through, roughly where a skimmer has stopped and a careful reader is slowing down.</p>
+
+<h2>The headings above them</h2>
+<p>The headings tell a more interesting story. The most common headings above AI sentences are about legal bases and data sources, like "legitimate interests," "third-party public sources" and "partners," rather than anything that says "artificial intelligence." To find the AI language, you need to already know which legal concept it's filed under.</p>
+<figure class="evidence"><div class="label">Exhibit B</div><div class="chart" id="heads"></div><figcaption>The section heading directly above each AI sentence in the current documents, lowercased, with company names removed.</figcaption></figure>
+</main><nav class="pager" aria-label="Previous and next case"><a href="readability.html"><small>previous file</small>The Paper Trail</a><a href="churn.html" style="text-align:right"><small>next file</small>The Stakeout</a></nav>
+<script src="js/noir.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/placement.js"></script>
+</body>
+</html>

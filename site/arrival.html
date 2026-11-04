@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Confessions | The Fine Print</title>
+<meta name="description" content="One platform had a training clause at the end of 2022. By late 2026, more than half of the 25 I tracked did.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<nav class="tabs" aria-label="Case files"><a class="home" href="index.html">The Fine Print</a><a class="tab" href="arrival.html" aria-current="page"><b>01</b>The Confessions</a><a class="tab" href="vocabulary.html"><b>02</b>The Wiretap</a><a class="tab" href="hedging.html"><b>03</b>The Interrogation</a><a class="tab" href="readability.html"><b>04</b>The Paper Trail</a><a class="tab" href="placement.html"><b>05</b>Where It's Buried</a><a class="tab" href="churn.html"><b>06</b>The Stakeout</a><a class="tab" href="templates.html"><b>07</b>The Accomplices</a><a class="tab" href="model.html"><b>08</b>The Polygraph</a><a class="tab" href="methods.html"><b>09</b>Case Notes</a></nav>
+<main class="file"><span class="stamp big headstamp" data-slam>13 confessed</span><div class="casehead"><span>CASE FILE 01</span><span>THE FINE PRINT</span><span>FILED BY I. MAINI, NOV 2026</span></div><h1 data-type>The Confessions</h1><p class="dek">One platform had a training clause at the end of 2022. By late 2026, more than half of the 25 I tracked did.</p><p>For each platform I found the first saved version of its privacy policy or terms of service that contains a training clause: a sentence saying people's information can be used to train, develop or improve AI or machine-learning models. (How I decided what counts is on the <a href="methods.html">Case Notes</a> file.)</p>
+<h2>The lineup</h2><p class="hand">Click a suspect to turn their card over and read the confession.</p><div class="lineup" id="lineup"></div>
+
+
+<figure class="evidence"><div class="label">Exhibit A</div>
+  <div class="chart min" id="timeline"></div>
+  <figcaption>Each line starts when the archive began tracking that platform. A filled dot is the first saved version with a training clause; an open dot means the clause was already there on the first day of tracking, so the real date is earlier. Select a dot to read the sentence.</figcaption>
+  <div class="quote" id="reader" aria-live="polite"></div>
+</figure>
+
+<p>The dates cluster. Platform I, a video service, was first, in December 2022. Then came a run in mid-2023, as generative AI went mainstream: four platforms within two months. A second group followed in mid-2024, including three within five weeks of each other. After that the pace slowed, but it didn't stop.</p>
+
+<h2>How much AI language is in force</h2>
+<p>Counting only the documents actually in force at the end of each quarter, I measured how many sentences mention AI or machine learning per 10,000 words, and how many of those are training clauses.</p>
+<figure class="evidence"><div class="label">Exhibit B</div>
+  <div class="chart" id="growth"></div>
+  <figcaption>Sentences per 10,000 words across all documents in force at the end of each quarter.</figcaption>
+</figure>
+<p id="growthText"></p>
+
+<h2>Platforms without one</h2>
+<p id="never"></p>
+</main><nav class="pager" aria-label="Previous and next case"><a href="index.html"><small>previous file</small>Case board</a><a href="vocabulary.html" style="text-align:right"><small>next file</small>The Wiretap</a></nav>
+<script src="js/noir.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/arrival.js"></script>
+</body>
+</html>

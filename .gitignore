@@ -1,0 +1,8 @@
+# the sqlite db is rebuilt from the public archive by extract.py
+fineprint.db
+__pycache__/
+# these keep real platform names; only the anonymised build/data/ is published
+build/data.json
+build/deep.json
+labels.csv
+to_label.csv

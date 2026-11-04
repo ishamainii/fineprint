@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Fine Print</title>
+<meta name="description" content="An investigation into how 25 social platforms rewrote their privacy policies and terms to train AI on what you post. 2,283 documents, nine case files.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<nav class="tabs" aria-label="Case files"><a class="home" href="index.html">The Fine Print</a><a class="tab" href="arrival.html"><b>01</b>The Confessions</a><a class="tab" href="vocabulary.html"><b>02</b>The Wiretap</a><a class="tab" href="hedging.html"><b>03</b>The Interrogation</a><a class="tab" href="readability.html"><b>04</b>The Paper Trail</a><a class="tab" href="placement.html"><b>05</b>Where It's Buried</a><a class="tab" href="churn.html"><b>06</b>The Stakeout</a><a class="tab" href="templates.html"><b>07</b>The Accomplices</a><a class="tab" href="model.html"><b>08</b>The Polygraph</a><a class="tab" href="methods.html"><b>09</b>Case Notes</a></nav>
+<section class="board" id="board">
+  <svg class="strings" id="strings" aria-hidden="true"></svg>
+  <div class="board-title">
+    <h1 data-type>The Fine Print</h1>
+    <p>Somewhere between 2022 and 2026, more than half the platforms you use wrote a new sentence into their rules: the one that lets them train AI on what you post. Nobody announced it. I went through 2,283 versions of their privacy policies and terms of service to find out who did it, when, and how they worded it.</p>
+  </div>
+
+  <div class="fineprint-lens" id="lens" aria-label="Every training clause found, set as fine print. Move the magnifying glass over it to read."></div>
+  <p style="text-align:center;color:#f3e6c8;margin:-12px 0 34px;font-size:15px"><span class="hand" style="color:#f3e6c8">← every training clause I found, at the size you'd normally see it. Use the glass.</span></p>
+
+  <div class="cases">
+    <a class="case" href="arrival.html"><span class="pin"></span><span class="no">CASE 01</span><h2>The Confessions</h2><p>Who wrote the training clause into their rules, and when. Flip each suspect's card.</p><span class="stamp" data-slam>13 of 25</span></a>
+    <a class="case" href="vocabulary.html"><span class="pin"></span><span class="no">CASE 02</span><h2>The Wiretap</h2><p>Four years of their language, word by word. Tap any word and listen to it rise.</p><span class="stamp" data-slam>15× more AI</span></a>
+    <a class="case" href="hedging.html"><span class="pin"></span><span class="no">CASE 03</span><h2>The Interrogation</h2><p>Put the clauses under the lamp. Count the evasions.</p><span class="stamp" data-slam>1.9× evasive</span></a>
+    <a class="case" href="readability.html"><span class="pin"></span><span class="no">CASE 04</span><h2>The Paper Trail</h2><p>The documents grew by 156,000 words. Here's the stack.</p><span class="stamp" data-slam>25 hours</span></a>
+    <a class="case" href="placement.html"><span class="pin"></span><span class="no">CASE 05</span><h2>Where It's Buried</h2><p>Dig through a document and find the AI language. Check the headings it hides under.</p><span class="stamp" data-slam>mid-file</span></a>
+    <a class="case" href="churn.html"><span class="pin"></span><span class="no">CASE 06</span><h2>The Stakeout</h2><p>Four years of surveillance. Every edit they made, and which ones touched AI.</p><span class="stamp" data-slam>865 edits</span></a>
+    <a class="case" href="templates.html"><span class="pin"></span><span class="no">CASE 07</span><h2>The Accomplices</h2><p>Did they copy each other? Fingerprint matching on every AI sentence.</p><span class="stamp" data-slam>lone wolves</span></a>
+    <a class="case" href="model.html"><span class="pin"></span><span class="no">CASE 08</span><h2>The Polygraph</h2><p>A machine-learning lie detector for training clauses. Feed it any sentence.</p><span class="stamp" data-slam>F1 0.89</span></a>
+    <a class="case" href="methods.html"><span class="pin"></span><span class="no">CASE 09</span><h2>Case Notes</h2><p>How the evidence was gathered, the 800× faster search, and what it can't prove.</p><span class="stamp" data-slam>on file</span></a>
+  </div>
+  <p style="color:#e9dcc0;font-size:14px;max-width:70ch;margin:44px auto 0;text-align:center">Every platform is anonymised: suspects are letters with a broad category, and company names in quotes are redacted. This isn't about catching one company. It's about how a whole industry writes to you. By Isha Maini, November 2026.</p>
+</section>
+<script>
+// the strings: red thread from pin to pin, redrawn whenever the layout moves
+function strings() {
+  const board = document.getElementById("board"), svg = document.getElementById("strings"), r0 = board.getBoundingClientRect();
+  const pins = [...document.querySelectorAll(".case .pin")].map(p => { const r = p.getBoundingClientRect(); return [r.left - r0.left + r.width / 2, r.top - r0.top + r.height / 2]; });
+  svg.setAttribute("viewBox", `0 0 ${r0.width} ${r0.height}`); svg.setAttribute("width", r0.width); svg.setAttribute("height", r0.height);
+  svg.innerHTML = pins.slice(1).map((p, i) => { const a = pins[i], mx = (a[0] + p[0]) / 2, my = Math.max(a[1], p[1]) + 40;
+    return `<path d="M${a[0]},${a[1]} Q${mx},${my} ${p[0]},${p[1]}" fill="none" stroke="#b0261d" stroke-width="2" opacity=".85"/>`; }).join("");
+}
+addEventListener("load", strings); addEventListener("resize", strings);
+// the fine print block: every training clause, tiny, with the giveaway phrases marked
+fetch("data/arrival.json").then(r => r.json()).then(d => {
+  const mark = s => s.replace(/(train\w*|artificial intelligence|machine learning|generative|models?|develop and improve|AI\b)/gi, "<mark>$1</mark>");
+  document.getElementById("lens").innerHTML = d.arrival.map(a => `<p style="margin:0 0 6px"><b>${a.code}.</b> ${noir.redact(mark(esc(a.text)))}</p>`).join("");
+  noir.wire(); document.querySelectorAll(".fineprint-lens").forEach(b => b.dispatchEvent(new Event("rewire")));
+  setTimeout(strings, 50);
+});
+</script>
+<nav class="pager" aria-label="Previous and next case"><span></span><a href="arrival.html" style="text-align:right"><small>next file</small>The Confessions</a></nav>
+<script src="js/noir.js"></script>
+<script src="js/charts.js"></script>
+
+</body>
+</html>

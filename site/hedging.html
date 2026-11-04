@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Interrogation | The Fine Print</title>
+<meta name="description" content="Training clauses are hedged far more heavily than the rest of the policy. Here's which words do the hedging.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<nav class="tabs" aria-label="Case files"><a class="home" href="index.html">The Fine Print</a><a class="tab" href="arrival.html"><b>01</b>The Confessions</a><a class="tab" href="vocabulary.html"><b>02</b>The Wiretap</a><a class="tab" href="hedging.html" aria-current="page"><b>03</b>The Interrogation</a><a class="tab" href="readability.html"><b>04</b>The Paper Trail</a><a class="tab" href="placement.html"><b>05</b>Where It's Buried</a><a class="tab" href="churn.html"><b>06</b>The Stakeout</a><a class="tab" href="templates.html"><b>07</b>The Accomplices</a><a class="tab" href="model.html"><b>08</b>The Polygraph</a><a class="tab" href="methods.html"><b>09</b>Case Notes</a></nav>
+<main class="file"><span class="stamp big headstamp" data-slam>1.9× evasive</span><div class="casehead"><span>CASE FILE 03</span><span>THE FINE PRINT</span><span>FILED BY I. MAINI, NOV 2026</span></div><h1 data-type>The Interrogation</h1><p class="dek">Training clauses are hedged far more heavily than the rest of the policy. Here's which words do the hedging.</p><p>Legal writing hedges for good reasons. A company can't promise exactly how it will use data years from now. But hedging also has an effect on the reader: "we may use your content to improve our models" commits to much less than "we use your content to train our models."</p>
+<h2>Under the lamp</h2><p>Pick a suspect. Every training clause they wrote is read back with the evasions lit up, and the meter counts hedges per 100 words. The line marks the rest of the policy.</p><div class="controls" id="suspects" role="group" aria-label="Choose a platform"></div><div class="statement" id="statement" aria-live="polite"></div><div class="meter" id="meter"><i></i></div><p class="small" id="meterNote"></p>
+
+<p>I compared the training clauses of ordinary sentence length (5 to 80 words) with every other sentence of the same length in the current documents, counting a fixed list of hedge words and phrases: <i>may, might, could, can, such as, including, for example, among other, from time to time, as appropriate, where permitted, to improve, to develop, certain</i>.</p>
+
+<figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="overall"></div><figcaption id="overallNote"></figcaption></figure>
+
+<h2>Which words do the hedging</h2>
+<p>I expected "may" to carry the hedging. It doesn't: training clauses actually use "may" less than the rest of the policy. The difference comes from two other habits. One is illustration, where "such as" and "for example" show up four to five times as often, so the clause lists a few uses without saying the list is complete. The other is open-ended purpose: "to develop" and "to improve" are about ten times more common, turning a specific use of data into a goal with no obvious edge.</p>
+<figure class="evidence"><div class="label">Exhibit B</div><div class="chart" id="perword"></div><figcaption>Uses per 1,000 words. Blue: training clauses. Grey: all other sentences.</figcaption></figure>
+
+<h2>Over time</h2>
+<p>Across every document in force, "may"-type words (may, might, could, can) outnumber "will"-type words (will, shall, must, do not, never) steadily, at about 11 versus 7 per 1,000 words. Inside AI sentences, the "may" rate has fallen as AI language moved from vague possibility to describing features that actually exist.</p>
+<figure class="evidence"><div class="label">Exhibit C</div><div class="chart" id="modal"></div><figcaption>Per 1,000 words. "AI sentences" covers every sentence mentioning AI or machine learning, not only training clauses.</figcaption></figure>
+</main><nav class="pager" aria-label="Previous and next case"><a href="vocabulary.html"><small>previous file</small>The Wiretap</a><a href="readability.html" style="text-align:right"><small>next file</small>The Paper Trail</a></nav>
+<script src="js/noir.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/hedging.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Paper Trail | The Fine Print</title>
+<meta name="description" content="The documents in force grew by tens of thousands of words, and they didn't get any easier to read.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<nav class="tabs" aria-label="Case files"><a class="home" href="index.html">The Fine Print</a><a class="tab" href="arrival.html"><b>01</b>The Confessions</a><a class="tab" href="vocabulary.html"><b>02</b>The Wiretap</a><a class="tab" href="hedging.html"><b>03</b>The Interrogation</a><a class="tab" href="readability.html" aria-current="page"><b>04</b>The Paper Trail</a><a class="tab" href="placement.html"><b>05</b>Where It's Buried</a><a class="tab" href="churn.html"><b>06</b>The Stakeout</a><a class="tab" href="templates.html"><b>07</b>The Accomplices</a><a class="tab" href="model.html"><b>08</b>The Polygraph</a><a class="tab" href="methods.html"><b>09</b>Case Notes</a></nav>
+<main class="file"><span class="stamp big headstamp" data-slam>25 hours</span><div class="casehead"><span>CASE FILE 04</span><span>THE FINE PRINT</span><span>FILED BY I. MAINI, NOV 2026</span></div><h1 data-type>The Paper Trail</h1><p class="dek">The documents in force grew by tens of thousands of words, and they didn't get any easier to read.</p><p>The AI clauses landed in documents that were already growing. Adding up every privacy policy and terms of service in force at the end of each quarter, the total went from <span id="w0"></span> words to <span id="w1"></span>. Part of that is new platforms joining the archive, so the second line holds the set steady: the median length of a single document.</p>
+<h2>The stack</h2><p>Every document in force, printed out. One sheet here is 5,000 words.</p><div class="stacks" id="stacks"></div>
+
+<figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="total"></div><figcaption>Total words across all documents in force (left axis scale), and the median length of one document.</figcaption></figure>
+<figure class="evidence"><div class="label">Exhibit B</div><div class="chart" id="median"></div></figure>
+
+<h2>Every document, every revision</h2>
+<p>Each line is one platform's privacy policy, with a point at every revision. Most drift slowly upward. A few jump by thousands of words in a single revision, usually when a regional section or a new product's terms get folded in.</p>
+<div class="chips" id="docPick" role="group" aria-label="Document type"><button aria-pressed="true" data-doc="Privacy Policy">Privacy policies</button><button aria-pressed="false" data-doc="Terms of Service">Terms of service</button></div>
+<figure class="evidence"><div class="label">Exhibit C</div><div class="chart min" id="spaghetti"></div><figcaption id="spagNote"></figcaption></figure>
+
+<h2>Reading ease</h2>
+<p>The Flesch reading-ease score runs from about 0 (very hard) to 100 (very easy), and plain English sits around 60. I took the median sentence score for each document and then the median across documents in force. It started around 41 and ended around 38: not much movement, and already in the range usually described as college-level.</p>
+<figure class="evidence"><div class="label">Exhibit D</div><div class="chart" id="ease"></div><figcaption>Median Flesch reading ease of documents in force, by quarter. Sentences of 5 to 80 words only.</figcaption></figure>
+<p>At an average adult reading speed of about 238 words a minute, reading every current privacy policy and terms of service in this set once would take about <b><span id="hours"></span> hours</b>.</p>
+</main><nav class="pager" aria-label="Previous and next case"><a href="hedging.html"><small>previous file</small>The Interrogation</a><a href="placement.html" style="text-align:right"><small>next file</small>Where It's Buried</a></nav>
+<script src="js/noir.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/readability.js"></script>
+</body>
+</html>

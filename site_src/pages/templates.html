@@ -1,0 +1,11 @@
+<!-- title: The Accomplices -->
+<!-- stamp: lone wolves -->
+<!-- dek: I expected boilerplate copied across the industry. Instead, almost every platform writes its AI language its own way. -->
+<p>Policies aren't written from scratch. Lawyers reuse language, and platforms with the same owner often share whole sections. I expected the AI clauses to be the same few sentences passed around. To check, I turned every distinct AI sentence into a TF-IDF vector, a weighted count of its words and word pairs, and measured cosine similarity between every pair of sentences from different platforms. A score of 1 means identical wording, and anything above about 0.5 shares long runs of phrasing.</p>
+<figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="heat"></div><figcaption>For each pair of platforms, the similarity of their two most alike AI sentences. Darker means closer. Select a square to see the pair.</figcaption></figure>
+<div id="pick" aria-live="polite"></div>
+
+<h2>What the matrix shows</h2>
+<p id="pairsIntro"></p>
+<div id="pairs"></div>
+<p>So the similarity in these documents comes from shared ownership, not industry boilerplate. That cuts both ways. Nobody is copying a standard clause, but there's also no common language a reader could learn once and recognise everywhere. Each platform describes the same practice in its own words, under its own headings (see <a href="placement.html">Placement</a>).</p>

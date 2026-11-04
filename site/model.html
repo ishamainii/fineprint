@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Polygraph | The Fine Print</title>
+<meta name="description" content="The classifier that finds training clauses, running in your browser. Type any sentence and see what it thinks.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<nav class="tabs" aria-label="Case files"><a class="home" href="index.html">The Fine Print</a><a class="tab" href="arrival.html"><b>01</b>The Confessions</a><a class="tab" href="vocabulary.html"><b>02</b>The Wiretap</a><a class="tab" href="hedging.html"><b>03</b>The Interrogation</a><a class="tab" href="readability.html"><b>04</b>The Paper Trail</a><a class="tab" href="placement.html"><b>05</b>Where It's Buried</a><a class="tab" href="churn.html"><b>06</b>The Stakeout</a><a class="tab" href="templates.html"><b>07</b>The Accomplices</a><a class="tab" href="model.html" aria-current="page"><b>08</b>The Polygraph</a><a class="tab" href="methods.html"><b>09</b>Case Notes</a></nav>
+<main class="file"><span class="stamp big headstamp" data-slam>F1 0.89</span><div class="casehead"><span>CASE FILE 08</span><span>THE FINE PRINT</span><span>FILED BY I. MAINI, NOV 2026</span></div><h1 data-type>The Polygraph</h1><p class="dek">The classifier that finds training clauses, running in your browser. Type any sentence and see what it thinks.</p><p>Keyword search for "train" plus "AI" misses a lot, because companies often say "develop and improve AI" or "machine learning models" without the word "train." So I hand-labelled 133 distinct AI sentences (does this say people's data is used to train, develop or improve AI?) and trained a small model: TF-IDF features over words and word pairs, fed to logistic regression. Company and product names are replaced with [company] and [product] before training, so the model can't lean on who wrote a sentence. It scores F1 0.89 in cross-validation, against 0.77 for the keyword rule.</p>
+<p>The model below is the real trained model, exported to the browser: same vocabulary, same weights, same maths.</p>
+
+<h2>Strap a sentence in</h2>
+<textarea id="input" aria-label="Sentence to classify">We may use information you share publicly to develop and improve artificial intelligence models, such as large language models.</textarea>
+<div class="chips" id="examples" role="group" aria-label="Example sentences"></div>
+<div class="polygraph"><canvas id="needle" height="150" style="width:100%;height:150px;display:block"></canvas><span class="stamp big verdict" id="verdict"></span></div>
+<div class="quote" id="out" aria-live="polite"></div>
+
+<h2>Choosing a threshold</h2>
+<p>The model outputs a probability, and where you draw the line trades precision (of what it flags, how much is right) against recall (of the real clauses, how many it finds). These numbers come from one round of 5-fold cross-validation, so every score is on a sentence the model never trained on. (One round can be a little lucky or unlucky; averaged over ten rounds with different splits, F1 is 0.89.)</p>
+<div class="controls"><label for="thr">Threshold</label><input type="range" id="thr" min="0.05" max="0.95" step="0.05" value="0.5" style="flex:1"><b id="thrV">0.50</b></div>
+<div class="tablewrap"><table id="cm"></table></div>
+<figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="pr"></div><figcaption>Precision against recall at every threshold. The dot is the current threshold; the square is the keyword rule.</figcaption></figure>
+
+<h2>What it learned</h2>
+<p>The largest weights in each direction. Words that push toward "training clause" are about building and improving; words that push away are about using a feature, or rules for users.</p>
+<figure class="evidence"><div class="label">Exhibit B</div><div class="chart" id="weights"></div></figure>
+
+<h2>Where it's wrong</h2>
+<p>The cross-validated predictions that disagree most with my labels. Some of these are model mistakes, and some are honestly borderline.</p>
+<div class="tablewrap"><table id="errors"></table></div>
+</main><nav class="pager" aria-label="Previous and next case"><a href="templates.html"><small>previous file</small>The Accomplices</a><a href="methods.html" style="text-align:right"><small>next file</small>Case Notes</a></nav>
+<script src="js/noir.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/model.js"></script>
+</body>
+</html>
