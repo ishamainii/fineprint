@@ -1,6 +1,7 @@
 <!-- title: The Polygraph -->
 <!-- stamp: F1 0.89 -->
 <!-- dek: The classifier that finds training clauses, running live in your browser, and an honest account of where it beats keyword search and where it doesn't. -->
+<div class="plain"><b>In plain terms</b><p>I trained a small program to recognise these clauses. It beats a simple keyword search on the apps it learned from, but it does worse on apps it has never seen.</p></div>
 <p>Keyword search for "train" plus "AI" misses a lot, because companies often say "develop and improve AI" or "machine learning models" without the word "train." So I hand-labelled 133 distinct AI sentences (does this say people's data is used to train, develop or improve AI?) and trained a small model: TF-IDF features over words and word pairs, fed to logistic regression. Company and product names are blacked out before training, so the model has to learn how a training clause is worded, not which company tends to write one.</p>
 <p>The model below is the real trained model, exported to the browser: same vocabulary, same weights, same maths.</p>
 

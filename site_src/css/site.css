@@ -239,3 +239,12 @@ textarea { display: block; font: 15px/1.5 var(--mono); color: var(--bone); backg
 }
 
 #calib svg { max-width: 380px; margin: 0 auto; }
+
+/* in plain terms: the takeaway for someone who reads nothing else */
+.plain { border-left: 3px solid var(--marker); padding: 4px 0 4px 20px; margin: -8px auto 34px !important; }
+.plain b { display: block; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 18px; color: var(--marker); margin-bottom: 4px; }
+.plain p { font-size: 20px; line-height: 1.5; color: #fff; margin: 0 !important; }
+.takeaways { list-style: none; padding: 0 !important; max-width: 720px; margin: 0 auto 30px; }
+.takeaways li { padding: 16px 0 16px 34px; border-bottom: 1px solid var(--rule); position: relative; font-size: 18px; line-height: 1.5; color: var(--bone-dim); margin: 0 !important; }
+.takeaways li::before { content: ""; position: absolute; left: 4px; top: 25px; width: 12px; height: 12px; background: var(--marker); clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%); }
+.takeaways b { display: block; color: #fff; font-size: 19px; margin-bottom: 2px; }

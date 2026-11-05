@@ -1,6 +1,7 @@
 <!-- title: Forensics -->
 <!-- stamp: on file -->
 <!-- dek: The data, the search engineering, the labelling, the statistics, and what this investigation can't prove. -->
+<div class="plain"><b>In plain terms</b><p>This chapter explains where the data comes from, how each number was checked, and what this investigation cannot tell you.</p></div>
 <h2>Data</h2>
 <p>Open Terms Archive tracks platform documents and commits a new version to a public git repository whenever the text changes<a class="fn" href="#n1">1</a>. I walked the history of every privacy policy and terms of service for 26 tracked services, 2,283 versions from July 2022 to November 2026, with a small Python script that reads each version straight out of git into SQLite, and split each version into sentences. Two of the services are the same product before and after a rename, so I merged them, which leaves 25 platforms.</p>
 <p>The archive also commits when it changes how it collects a page, not just when the page changes. Those 78 maintenance commits stay in the data but are never counted as a revision.</p>
