@@ -4,22 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Accomplices | The Fine Print</title>
-<meta name="description" content="I expected boilerplate copied across the industry. Instead, almost every platform writes its AI language its own way.">
+<meta name="description" content="I expected boilerplate passed around the industry. Instead, almost every platform writes its AI language its own way. The one exact match is a company copying itself.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=Inter+Tight:wght@400;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-<nav class="tabs" aria-label="Case files"><a class="home" href="index.html">The Fine Print</a><a class="tab" href="arrival.html"><b>01</b>The Confessions</a><a class="tab" href="vocabulary.html"><b>02</b>The Wiretap</a><a class="tab" href="hedging.html"><b>03</b>The Interrogation</a><a class="tab" href="readability.html"><b>04</b>The Paper Trail</a><a class="tab" href="placement.html"><b>05</b>Where It's Buried</a><a class="tab" href="churn.html"><b>06</b>The Stakeout</a><a class="tab" href="templates.html" aria-current="page"><b>07</b>The Accomplices</a><a class="tab" href="model.html"><b>08</b>The Polygraph</a><a class="tab" href="methods.html"><b>09</b>Case Notes</a></nav>
-<main class="file"><span class="stamp big headstamp" data-slam>lone wolves</span><div class="casehead"><span>CASE FILE 07</span><span>THE FINE PRINT</span><span>FILED BY I. MAINI, NOV 2026</span></div><h1 data-type>The Accomplices</h1><p class="dek">I expected boilerplate copied across the industry. Instead, almost every platform writes its AI language its own way.</p><p>Policies aren't written from scratch. Lawyers reuse language, and platforms with the same owner often share whole sections. I expected the AI clauses to be the same few sentences passed around. To check, I turned every distinct AI sentence into a TF-IDF vector, a weighted count of its words and word pairs, and measured cosine similarity between every pair of sentences from different platforms. A score of 1 means identical wording, and anything above about 0.5 shares long runs of phrasing.</p>
+<nav class="tabs" aria-label="Chapters"><a class="home" href="index.html">The Fine Print</a><a class="tab" href="arrival.html"><b>01</b>The Confessions</a><a class="tab" href="vocabulary.html"><b>02</b>The Wiretap</a><a class="tab" href="hedging.html"><b>03</b>The Interrogation</a><a class="tab" href="readability.html"><b>04</b>The Paper Trail</a><a class="tab" href="placement.html"><b>05</b>The Burial</a><a class="tab" href="churn.html"><b>06</b>The Stakeout</a><a class="tab" href="templates.html" aria-current="page"><b>07</b>The Accomplices</a><a class="tab" href="model.html"><b>08</b>The Polygraph</a><a class="tab" href="methods.html"><b>09</b>Forensics</a></nav>
+<main class="file"><span class="stamp big headstamp" data-slam>lone wolves</span><div class="casehead"><span>Chapter 07</span><span>The Fine Print</span><span>An investigation by Isha Maini</span></div><h1 data-type>The Accomplices</h1><p class="dek">I expected boilerplate passed around the industry. Instead, almost every platform writes its AI language its own way. The one exact match is a company copying itself.</p><p>Policies aren't written from scratch. Lawyers reuse language, and platforms with the same owner often share whole sections. I expected the AI clauses to be the same few sentences passed around. To check, I turned every distinct AI sentence into a TF-IDF vector, a weighted count of its words and word pairs, and measured cosine similarity between every pair of sentences from different platforms. A score of 1 means identical wording, and anything above about 0.5 shares long runs of phrasing.</p>
 <figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="heat"></div><figcaption>For each pair of platforms, the similarity of their two most alike AI sentences. Darker means closer. Select a square to see the pair.</figcaption></figure>
 <div id="pick" aria-live="polite"></div>
 
 <h2>What the matrix shows</h2>
 <p id="pairsIntro"></p>
 <div id="pairs"></div>
-<p>So the similarity in these documents comes from shared ownership, not industry boilerplate. That cuts both ways. Nobody is copying a standard clause, but there's also no common language a reader could learn once and recognise everywhere. Each platform describes the same practice in its own words, under its own headings (see <a href="placement.html">Placement</a>).</p>
-</main><nav class="pager" aria-label="Previous and next case"><a href="churn.html"><small>previous file</small>The Stakeout</a><a href="model.html" style="text-align:right"><small>next file</small>The Polygraph</a></nav>
+<div class="finding"><span class="marker">1</span><div>
+  <p class="claim">No accomplices. The only exact match is <em>Meta copying Meta</em>.</p>
+  <p class="proof">TF-IDF cosine similarity of every AI sentence pair across platforms · Facebook and Instagram share one policy (similarity 1.0) · the next closest pair, Pinterest and TikTok, shares a phrase, not a sentence (0.51)</p>
+</div></div>
+<p>So the similarity in these documents comes from shared ownership, not industry boilerplate. That cuts both ways. Nobody is copying a standard clause, but there's also no common language a reader could learn once and recognise everywhere. Each platform describes the same practice in its own words, under its own headings (see <a href="placement.html">The Burial</a>).</p>
+</main><nav class="pager" aria-label="Previous and next case"><a href="churn.html"><small>previous chapter</small>The Stakeout</a><a href="model.html" style="text-align:right"><small>next chapter</small>The Polygraph</a></nav>
 <script src="js/noir.js"></script>
 <script src="js/charts.js"></script>
 <script src="js/templates.js"></script>

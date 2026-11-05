@@ -1,43 +1,64 @@
 <!-- title: The Fine Print -->
-<!-- dek: An investigation into how 25 social platforms rewrote their privacy policies and terms to train AI on what you post. 2,283 documents, nine case files. -->
-<section class="board" id="board">
-  <svg class="strings" id="strings" aria-hidden="true"></svg>
-  <div class="board-title">
-    <h1 data-type>The Fine Print</h1>
-    <p>Somewhere between 2022 and 2026, more than half the platforms you use wrote a new sentence into their rules: the one that lets them train AI on what you post. Nobody announced it. I went through 2,283 versions of their privacy policies and terms of service to find out who did it, when, and how they worded it.</p>
-  </div>
+<!-- dek: How 25 social platforms rewrote their privacy policies and terms to train AI on what people post. A data investigation of 2,283 documents and 937,131 sentences, 2022 to 2026. -->
+<section class="open">
+  <p class="time" id="clock" aria-hidden="true"></p>
+  <h1 data-type>The Fine Print</h1>
+  <p class="sub">a data investigation</p>
+  <p class="lede">By August 2026, <b><span data-s="arrival.n">13</span> of the 25 platforms</b> most people use had written one new sentence into their rules: the one that lets them train AI on what you post. The typical one sits halfway down the document.</p>
+  <p class="scrollcue">open the case</p>
+</section>
 
-  <div class="fineprint-lens" id="lens" aria-label="Every training clause found, set as fine print. Move the magnifying glass over it to read."></div>
-  <p style="text-align:center;color:#f3e6c8;margin:-12px 0 34px;font-size:15px"><span class="hand" style="color:#f3e6c8">← every training clause I found, at the size you'd normally see it. Use the glass.</span></p>
+<section class="brief">
+  <h2>The case</h2>
+  <p class="lead">Every platform keeps a privacy policy and a terms of service, and they change, quietly and often. Open Terms Archive saves a copy each time the text moves. I pulled every saved version for 25 platforms, <span data-s="meta.versions">2,283</span> documents split into <span data-s="meta.sentences">937,131</span> sentences, and read them the way an investigator reads a paper trail: who changed what, when, in what words, and where they put it.</p>
+  <p>The findings below are each tested, not eyeballed. Uncertainty comes from a bootstrap that resamples whole platforms, because one company's lawyers write all of its documents; tests are run across platforms for the same reason. The method, the code and the data are public.</p>
 
-  <div class="cases">
-    <a class="case" href="arrival.html"><span class="pin"></span><span class="no">CASE 01</span><h2>The Confessions</h2><p>Who wrote the training clause into their rules, and when. Flip each suspect's card.</p><span class="stamp" data-slam>13 of 25</span></a>
-    <a class="case" href="vocabulary.html"><span class="pin"></span><span class="no">CASE 02</span><h2>The Wiretap</h2><p>Four years of their language, word by word. Tap any word and listen to it rise.</p><span class="stamp" data-slam>15× more AI</span></a>
-    <a class="case" href="hedging.html"><span class="pin"></span><span class="no">CASE 03</span><h2>The Interrogation</h2><p>Put the clauses under the lamp. Count the evasions.</p><span class="stamp" data-slam>1.9× evasive</span></a>
-    <a class="case" href="readability.html"><span class="pin"></span><span class="no">CASE 04</span><h2>The Paper Trail</h2><p>The documents grew by 156,000 words. Here's the stack.</p><span class="stamp" data-slam>25 hours</span></a>
-    <a class="case" href="placement.html"><span class="pin"></span><span class="no">CASE 05</span><h2>Where It's Buried</h2><p>Dig through a document and find the AI language. Check the headings it hides under.</p><span class="stamp" data-slam>mid-file</span></a>
-    <a class="case" href="churn.html"><span class="pin"></span><span class="no">CASE 06</span><h2>The Stakeout</h2><p>Four years of surveillance. Every edit they made, and which ones touched AI.</p><span class="stamp" data-slam>865 edits</span></a>
-    <a class="case" href="templates.html"><span class="pin"></span><span class="no">CASE 07</span><h2>The Accomplices</h2><p>Did they copy each other? Fingerprint matching on every AI sentence.</p><span class="stamp" data-slam>lone wolves</span></a>
-    <a class="case" href="model.html"><span class="pin"></span><span class="no">CASE 08</span><h2>The Polygraph</h2><p>A machine-learning lie detector for training clauses. Feed it any sentence.</p><span class="stamp" data-slam>F1 0.89</span></a>
-    <a class="case" href="methods.html"><span class="pin"></span><span class="no">CASE 09</span><h2>Case Notes</h2><p>How the evidence was gathered, the 800× faster search, and what it can't prove.</p><span class="stamp" data-slam>on file</span></a>
-  </div>
-  <p style="color:#e9dcc0;font-size:14px;max-width:70ch;margin:44px auto 0;text-align:center">Every platform is anonymised: suspects are letters with a broad category, and company names in quotes are redacted. This isn't about catching one company. It's about how a whole industry writes to you. By Isha Maini, November 2026.</p>
+  <div class="finding"><span class="marker">1</span><div>
+    <p class="claim">AI language in force grew <em><span data-s="growth.ratio">15</span>×</em> in four years.</p>
+    <p class="proof">sentences mentioning AI per 10,000 words in force · first year vs latest year · 95% CI <span data-s="growth.ci">8.5–30.1</span>× · rose at <span data-s="growth.platforms_up">12</span> of the <span data-s="growth.up_or_down">14</span> platforms where it moved (sign test p = <span data-s="growth.sign_test_p">0.0065</span>) · <span data-s="growth.without_top.ratio">14.1</span>× even without Facebook, the biggest contributor</p>
+  </div></div>
+  <div class="finding"><span class="marker">2</span><div>
+    <p class="claim">Training clauses hedge <em><span data-s="hedging.ratio_of_means">2.05</span>×</em> as much as the rest of the same policy.</p>
+    <p class="proof">hedge words per 100 words, each platform's clauses vs its own other sentences · 95% CI <span data-s="hedging.ci">1.51–2.61</span>× · higher at <span data-s="hedging.higher_in_clause">9</span> of <span data-s="hedging.platforms">12</span> platforms (Wilcoxon p = <span data-s="hedging.wilcoxon_p">0.0034</span>)</p>
+  </div></div>
+  <div class="finding"><span class="marker">3</span><div>
+    <p class="claim">The documents grew from <em>211,000</em> to <em>367,000</em> words, and got harder to read.</p>
+    <p class="proof">total words in force, every quarter · Kendall τ = <span data-s="trend.words_tau">0.94</span> for length, τ = <span data-s="trend.ease_tau">−0.76</span> for reading ease (both p &lt; 0.001) · reading all of them once: about <span data-s="readability.hours">25</span> hours</p>
+  </div></div>
+  <div class="finding"><span class="marker">4</span><div>
+    <p class="claim">The typical clause sits halfway down, filed under <em>legal bases</em>.</p>
+    <p class="proof">median training clause sits <span data-s="placement.median_clause" data-f="pct">49</span>% of the way through its document · most common headings: litigation, legitimate interests, third-party sources</p>
+  </div></div>
+
+  <h2>Read the fine print yourself</h2>
+  <p>Below is every training clause I found, set at the size these sentences actually reach most people. Run the glass over it.</p>
+</section>
+
+<div class="fineprint-lens" id="lens" aria-label="Every training clause found, set very small. Move the magnifying glass over it to read."></div>
+
+<section class="brief">
+  <h2>Nine chapters</h2>
+  <ol class="chapters">
+    <li><a href="arrival.html"><span class="no">CHAPTER 01</span><h3>The Confessions</h3><p>Who wrote the clause, when, and what they said. One dossier per platform.</p><span class="big"><b>13</b>of 25 confessed</span></a></li>
+    <li><a href="vocabulary.html"><span class="no">CHAPTER 02</span><h3>The Wiretap</h3><p>Four years of their vocabulary, word by word. Look up any of 2,000+ terms.</p><span class="big"><b><span data-s="growth.ratio">15</span>×</b>more AI language</span></a></li>
+    <li><a href="hedging.html"><span class="no">CHAPTER 03</span><h3>The Interrogation</h3><p>Each clause under the lamp, with every evasion lit up and counted.</p><span class="big"><b><span data-s="hedging.ratio_of_means">2.05</span>×</b>the hedging</span></a></li>
+    <li><a href="readability.html"><span class="no">CHAPTER 04</span><h3>The Paper Trail</h3><p>The documents got longer and harder to read, every quarter.</p><span class="big"><b>25</b>hours to read it all</span></a></li>
+    <li><a href="placement.html"><span class="no">CHAPTER 05</span><h3>The Burial</h3><p>Where in a document the AI language is, and which headings hide it.</p><span class="big"><b>49%</b>of the way down</span></a></li>
+    <li><a href="churn.html"><span class="no">CHAPTER 06</span><h3>The Stakeout</h3><p>Every edit, every quarter, and which ones touched AI.</p><span class="big"><b>865</b>real revisions</span></a></li>
+    <li><a href="templates.html"><span class="no">CHAPTER 07</span><h3>The Accomplices</h3><p>Did they copy each other? Fingerprinting every AI sentence.</p><span class="big"><b>1</b>pair shares wording</span></a></li>
+    <li><a href="model.html"><span class="no">CHAPTER 08</span><h3>The Polygraph</h3><p>The machine-learning detector behind the investigation. Feed it any sentence.</p><span class="big"><b><span data-s="model.f1_mean">0.89</span></b>F1</span></a></li>
+    <li><a href="methods.html"><span class="no">CHAPTER 09</span><h3>Forensics</h3><p>Data, the 800× faster search, the statistics, and what this can't prove.</p><span class="big"><b>800×</b>faster search</span></a></li>
+  </ol>
+  <p class="byline" style="margin-top:28px">By Isha Maini, November 2026. Data: Open Terms Archive (CC BY-SA 4.0).</p>
 </section>
 <script>
-// the strings: red thread from pin to pin, redrawn whenever the layout moves
-function strings() {
-  const board = document.getElementById("board"), svg = document.getElementById("strings"), r0 = board.getBoundingClientRect();
-  const pins = [...document.querySelectorAll(".case .pin")].map(p => { const r = p.getBoundingClientRect(); return [r.left - r0.left + r.width / 2, r.top - r0.top + r.height / 2]; });
-  svg.setAttribute("viewBox", `0 0 ${r0.width} ${r0.height}`); svg.setAttribute("width", r0.width); svg.setAttribute("height", r0.height);
-  svg.innerHTML = pins.slice(1).map((p, i) => { const a = pins[i], mx = (a[0] + p[0]) / 2, my = Math.max(a[1], p[1]) + 40;
-    return `<path d="M${a[0]},${a[1]} Q${mx},${my} ${p[0]},${p[1]}" fill="none" stroke="#b0261d" stroke-width="2" opacity=".85"/>`; }).join("");
-}
-addEventListener("load", strings); addEventListener("resize", strings);
-// the fine print block: every training clause, tiny, with the giveaway phrases marked
+// cold open: a timestamp for the first confession, typed like a case-file header
+(() => { const s = "02 DEC 2022 · TIKTOK · PRIVACY POLICY · FIRST TRAINING CLAUSE ON RECORD", el = document.getElementById("clock");
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = s; return; }
+  let i = 0; const t = setInterval(() => { el.textContent = s.slice(0, ++i); if (i >= s.length) clearInterval(t); }, 28); })();
 fetch("data/arrival.json").then(r => r.json()).then(d => {
-  const mark = s => s.replace(/(train\w*|artificial intelligence|machine learning|generative|models?|develop and improve|AI\b)/gi, "<mark>$1</mark>");
-  document.getElementById("lens").innerHTML = d.arrival.map(a => `<p style="margin:0 0 6px"><b>${a.code}.</b> ${noir.redact(mark(esc(a.text)))}</p>`).join("");
-  noir.wire(); document.querySelectorAll(".fineprint-lens").forEach(b => b.dispatchEvent(new Event("rewire")));
-  setTimeout(strings, 50);
+  const mark = s => s.replace(/(train\w*|artificial intelligence|machine learning|generative|LLMs?|models?|develop and improve|\bAI\b)/gi, "<mark>$1</mark>");
+  document.getElementById("lens").innerHTML = d.arrival.map(a => `<p style="margin:0 0 6px"><b>${esc(a.code)}, ${a.date.slice(0, 10)}.</b> ${mark(esc(a.text))}</p>`).join("");
+  document.querySelectorAll(".fineprint-lens").forEach(b => b.dispatchEvent(new Event("rewire")));
 });
 </script>

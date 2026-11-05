@@ -1,7 +1,11 @@
 <!-- title: The Paper Trail -->
 <!-- stamp: 25 hours -->
-<!-- dek: The documents in force grew by tens of thousands of words, and they didn't get any easier to read. -->
+<!-- dek: The documents in force grew by 156,000 words, rose in length almost every quarter, and got measurably harder to read. -->
 <p>The AI clauses landed in documents that were already growing. Adding up every privacy policy and terms of service in force at the end of each quarter, the total went from <span id="w0"></span> words to <span id="w1"></span>. Part of that is new platforms joining the archive, so the second line holds the set steady: the median length of a single document.</p>
+<div class="finding"><span class="marker">1</span><div>
+  <p class="claim">Longer almost every quarter. Harder to read almost every quarter.</p>
+  <p class="proof">Mann–Kendall trend over 17 quarters · total words τ = <span data-s="trend.words_tau">0.94</span>, p = <span data-s="trend.words_p">2.6e-11</span> · median reading ease τ = <span data-s="trend.ease_tau">−0.76</span>, p = <span data-s="trend.ease_p">2.9e-05</span></p>
+</div></div>
 <h2>The stack</h2><p>Every document in force, printed out. One sheet here is 5,000 words.</p><div class="stacks" id="stacks"></div>
 
 <figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="total"></div><figcaption>Total words across all documents in force (left axis scale), and the median length of one document.</figcaption></figure>
@@ -13,6 +17,6 @@
 <figure class="evidence"><div class="label">Exhibit C</div><div class="chart min" id="spaghetti"></div><figcaption id="spagNote"></figcaption></figure>
 
 <h2>Reading ease</h2>
-<p>The Flesch reading-ease score runs from about 0 (very hard) to 100 (very easy), and plain English sits around 60. I took the median sentence score for each document and then the median across documents in force. It started around 41 and ended around 38: not much movement, and already in the range usually described as college-level.</p>
+<p>The Flesch reading-ease score runs from about 0 (very hard) to 100 (very easy), and plain English sits around 60. I took the median sentence score for each document and then the median across documents in force. It went from about 41 to about 38. Three points is small on a 100-point scale, but the decline is steady rather than noise (Kendall τ = −0.76 across 17 quarters), and the whole range sits where reading-ease tables say "college level".</p>
 <figure class="evidence"><div class="label">Exhibit D</div><div class="chart" id="ease"></div><figcaption>Median Flesch reading ease of documents in force, by quarter. Sentences of 5 to 80 words only.</figcaption></figure>
 <p>At an average adult reading speed of about 238 words a minute, reading every current privacy policy and terms of service in this set once would take about <b><span id="hours"></span> hours</b>.</p>

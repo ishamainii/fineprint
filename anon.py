@@ -1,4 +1,7 @@
-# anon.py: the anonymising rules shared by export.py and export_model.py
+# anon.py: naming rules shared by export.py and export_model.py
+# PUBLIC = True: platforms are published under their real names (Twitter merged into X).
+# The classifier is always trained on text with company and product names stripped, so it learns
+# how a training clause is worded, not which company tends to write one.
 import random
 import re
 
@@ -16,7 +19,9 @@ MERGE = {"Twitter": "X"}
 names = sorted(set(MERGE.get(p, p) for p in CATEGORY))
 random.Random(20261104).shuffle(names)
 CODE = {n: chr(65 + i) for i, n in enumerate(names)}
-code = lambda p: CODE[MERGE.get(p, p)]
+PUBLIC = True
+DISPLAY = {"TruthSocial": "Truth Social"}
+code = lambda p: DISPLAY.get(MERGE.get(p, p), MERGE.get(p, p)) if PUBLIC else CODE[MERGE.get(p, p)]
 cat = lambda p: CATEGORY[MERGE.get(p, p)]
 
 NAMES = ["Facebook", "Meta", "Instagram", "WhatsApp", "Messenger", "Threads", "LINE", "LY Corporation", "LinkedIn", "Microsoft",
@@ -33,7 +38,7 @@ _x = re.compile(r"\b(?:on|of|to|use|using|from) X\b")
 _users = re.compile(r"\b(?:snapchatters?|redditors?|tiktokers?|youtubers?|instagrammers?|tweeters?|pinners?)\b", re.I)
 
 
-def redact(s):
+def strip_names(s):
     s = _users.sub("[company] users", s)
     s = re.sub(r"<br\s*", "; ", s)
     s = re.sub(r"https?://\S+|www\.\S+|\S+\.(?:com|net|org)\S*", "[link]", s)
@@ -43,3 +48,14 @@ def redact(s):
     return " ".join(s.split())
 
 
+
+
+def clean(s):
+    s = re.sub(r"<br\s*", "; ", s)
+    s = re.sub(r"https?://\S+|www\.\S+", "[link]", s)
+    return " ".join(s.split())
+
+
+def redact(s):
+    """text as published on the site"""
+    return clean(s) if PUBLIC else strip_names(s)

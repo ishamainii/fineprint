@@ -13,7 +13,7 @@ from sklearn.metrics import confusion_matrix, f1_score, precision_recall_curve, 
 from sklearn.model_selection import StratifiedKFold, cross_val_predict
 from sklearn.pipeline import make_pipeline
 
-from anon import NAMES, PRODUCTS, redact
+from anon import strip_names as redact, NAMES, PRODUCTS
 from classify import kind
 
 OUT = Path("build/data")

@@ -8,10 +8,10 @@ from pathlib import Path
 SRC = Path(__file__).parent
 OUT = SRC.parent / "site"
 # slug, tab label, case number
-PAGES = [("index", "Case board", ""), ("arrival", "The Confessions", "01"), ("vocabulary", "The Wiretap", "02"),
-         ("hedging", "The Interrogation", "03"), ("readability", "The Paper Trail", "04"), ("placement", "Where It's Buried", "05"),
+PAGES = [("index", "The case", ""), ("arrival", "The Confessions", "01"), ("vocabulary", "The Wiretap", "02"),
+         ("hedging", "The Interrogation", "03"), ("readability", "The Paper Trail", "04"), ("placement", "The Burial", "05"),
          ("churn", "The Stakeout", "06"), ("templates", "The Accomplices", "07"), ("model", "The Polygraph", "08"),
-         ("methods", "Case Notes", "09")]
+         ("methods", "Forensics", "09")]
 
 HEAD = """<!doctype html>
 <html lang="en">
@@ -21,11 +21,11 @@ HEAD = """<!doctype html>
 <title>{title}</title>
 <meta name="description" content="{dek}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=Inter+Tight:wght@400;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-<nav class="tabs" aria-label="Case files">{nav}</nav>
+<nav class="tabs" aria-label="Chapters">{nav}</nav>
 """
 FOOT = """{pager}
 <script src="js/noir.js"></script>
@@ -53,14 +53,14 @@ for i, (slug, tab, num) in enumerate(PAGES):
     prev = PAGES[i - 1] if i > 0 else None
     nxt = PAGES[i + 1] if i + 1 < len(PAGES) else None
     pager = '<nav class="pager" aria-label="Previous and next case">' + \
-        (f'<a href="{prev[0]}.html"><small>previous file</small>{prev[1]}</a>' if prev else "<span></span>") + \
-        (f'<a href="{nxt[0]}.html" style="text-align:right"><small>next file</small>{nxt[1]}</a>' if nxt else "<span></span>") + "</nav>"
+        (f'<a href="{prev[0]}.html"><small>previous chapter</small>{prev[1]}</a>' if prev else "<span></span>") + \
+        (f'<a href="{nxt[0]}.html" style="text-align:right"><small>next chapter</small>{nxt[1]}</a>' if nxt else "<span></span>") + "</nav>"
     script = f'<script src="js/{slug}.js"></script>' if (SRC / "js" / f"{slug}.js").exists() else ""
     if slug == "index":
         main = body                        # the case board lays itself out
     else:
         stamp = f'<span class="stamp big headstamp" data-slam>{meta["stamp"]}</span>' if "stamp" in meta else ""
-        main = (f'<main class="file">{stamp}<div class="casehead"><span>CASE FILE {num}</span><span>THE FINE PRINT</span><span>FILED BY I. MAINI, NOV 2026</span></div>'
+        main = (f'<main class="file">{stamp}<div class="casehead"><span>Chapter {num}</span><span>The Fine Print</span><span>An investigation by Isha Maini</span></div>'
                 f'<h1 data-type>{meta["title"]}</h1><p class="dek">{meta["dek"]}</p>{body}</main>')
     html = HEAD.format(title=f'{meta["title"]} | The Fine Print' if slug != "index" else meta["title"],
                        dek=meta["dek"].replace('"', "&quot;"), nav=this_nav) + main + FOOT.format(pager=pager, script=script)

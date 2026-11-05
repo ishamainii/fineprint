@@ -20,7 +20,7 @@ load("churn").then(c => {
 
   const labels = c.size_hist.map((_, i) => [1, 10, 100, 1000].includes(Math.round(10 ** (i / 4))) && i % 4 === 0 ? String(Math.round(10 ** (i / 4))) : "");
   columns(document.getElementById("size"), c.size_hist, labels, { label: "revision size distribution", height: 190 });
-  barChart(document.getElementById("who"), c.per_platform.slice(0, 15).map(p => ({ label: `Platform ${p.code}`, value: p.n })), { fmt: v => `${v}`, label: "revisions per platform" });
+  barChart(document.getElementById("who"), c.per_platform.slice(0, 15).map(p => ({ label: `${p.code}`, value: p.n })), { fmt: v => `${v}`, label: "revisions per platform" });
 });
 
 // the stakeout log

@@ -1,17 +1,25 @@
 <!-- title: The Interrogation -->
-<!-- stamp: 1.9× evasive -->
-<!-- dek: Training clauses are hedged far more heavily than the rest of the policy. Here's which words do the hedging. -->
+<!-- stamp: 2× the hedging -->
+<!-- dek: Compared with the rest of the very same policy, the sentences about training AI hedge about twice as much. Here is the test, and the words that do it. -->
 <p>Legal writing hedges for good reasons. A company can't promise exactly how it will use data years from now. But hedging also has an effect on the reader: "we may use your content to improve our models" commits to much less than "we use your content to train our models."</p>
-<h2>Under the lamp</h2><p>Pick a suspect. Every training clause they wrote is read back with the evasions lit up, and the meter counts hedges per 100 words. The line marks the rest of the policy.</p><div class="controls" id="suspects" role="group" aria-label="Choose a platform"></div><div class="statement" id="statement" aria-live="polite"></div><div class="meter" id="meter"><i></i></div><p class="small" id="meterNote"></p>
+<h2>Under the lamp</h2><p>Pick a platform. Its first training clause is read back with every hedge lit up, and the meter counts hedges per 100 words. The white line on the meter is the same platform's other sentences, so each clause is compared with its own author's house style.</p><div class="controls" id="suspects" role="group" aria-label="Choose a platform"></div><div class="statement" id="statement" aria-live="polite"></div><div class="meter" id="meter"><i></i></div><p class="small" id="meterNote"></p>
 
-<p>I compared the training clauses of ordinary sentence length (5 to 80 words) with every other sentence of the same length in the current documents, counting a fixed list of hedge words and phrases: <i>may, might, could, can, such as, including, for example, among other, from time to time, as appropriate, where permitted, to improve, to develop, certain</i>.</p>
+<h2>The test</h2>
+<p>Hedging is counted with a fixed list of words and phrases, fixed before looking at the results: <i>may, might, could, can, such as, including, for example, among other, from time to time, as appropriate, where permitted, to improve, to develop, certain</i>. Only sentences of 5 to 80 words count, so flattened tables and headings don't distort the rate.</p>
+<p>The obvious comparison, all clauses against all other sentences, is confounded: platforms with wordier house styles might simply be the ones that wrote clauses. So the comparison is made <b>inside each platform</b>: its training clauses against the other sentences in its own current documents. That gives one paired difference per platform, and the test is across platforms.</p>
 
-<figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="overall"></div><figcaption id="overallNote"></figcaption></figure>
+<div class="finding"><span class="marker">1</span><div>
+  <p class="claim">Clauses hedge <em><span data-s="hedging.ratio_of_means">2.05</span>×</em> as much as their own policies.</p>
+  <p class="proof">mean over <span data-s="hedging.platforms">12</span> platforms with a current clause · 95% CI <span data-s="hedging.ci">1.51–2.61</span>× (bootstrap over platforms) · higher in <span data-s="hedging.higher_in_clause">9</span> of <span data-s="hedging.platforms">12</span> · one-sided Wilcoxon signed-rank p = <span data-s="hedging.wilcoxon_p">0.0034</span></p>
+</div></div>
+
+<figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="paired"></div><figcaption>Hedges per 100 words for each platform. Grey: the platform's other sentences. Red: its training clauses. A line going right means the clause hedges more than its own policy.</figcaption></figure>
+<figure class="evidence"><div class="label">Exhibit B</div><div class="chart" id="overall"></div><figcaption id="overallNote"></figcaption></figure>
 
 <h2>Which words do the hedging</h2>
 <p>I expected "may" to carry the hedging. It doesn't: training clauses actually use "may" less than the rest of the policy. The difference comes from two other habits. One is illustration, where "such as" and "for example" show up four to five times as often, so the clause lists a few uses without saying the list is complete. The other is open-ended purpose: "to develop" and "to improve" are about ten times more common, turning a specific use of data into a goal with no obvious edge.</p>
-<figure class="evidence"><div class="label">Exhibit B</div><div class="chart" id="perword"></div><figcaption>Uses per 1,000 words. Blue: training clauses. Grey: all other sentences.</figcaption></figure>
+<figure class="evidence"><div class="label">Exhibit C</div><div class="chart" id="perword"></div><figcaption>Uses per 1,000 words. Red: training clauses. Grey: all other sentences.</figcaption></figure>
 
 <h2>Over time</h2>
 <p>Across every document in force, "may"-type words (may, might, could, can) outnumber "will"-type words (will, shall, must, do not, never) steadily, at about 11 versus 7 per 1,000 words. Inside AI sentences, the "may" rate has fallen as AI language moved from vague possibility to describing features that actually exist.</p>
-<figure class="evidence"><div class="label">Exhibit C</div><div class="chart" id="modal"></div><figcaption>Per 1,000 words. "AI sentences" covers every sentence mentioning AI or machine learning, not only training clauses.</figcaption></figure>
+<figure class="evidence"><div class="label">Exhibit D</div><div class="chart" id="modal"></div><figcaption>Per 1,000 words. "AI sentences" covers every sentence mentioning AI or machine learning, not only training clauses.</figcaption></figure>

@@ -64,11 +64,12 @@ function columns(el, bins, labels, { width = 640, height = 200, color, label = "
 
 // square heatmap of a symmetric matrix
 function heatmap(el, codes, M, { label = "", onPick } = {}) {
-  const n = codes.length, cell = Math.min(26, 560 / n), l = 26, t = 22, W = l + n * cell + 4, H = t + n * cell + 4;
+  const n = codes.length, long = Math.max(...codes.map(c => String(c).length)) > 2, cell = Math.min(26, 560 / n), l = long ? 96 : 26, t = long ? 84 : 22, W = l + n * cell + 4, H = t + n * cell + 4;
   let s = "";
   codes.forEach((c, i) => {
     s += `<text x="${l - 6}" y="${t + i * cell + cell * 0.68}" font-size="11" text-anchor="end" fill="${C("--muted")}">${c}</text>` +
-         `<text x="${l + i * cell + cell / 2}" y="${t - 7}" font-size="11" text-anchor="middle" fill="${C("--muted")}">${c}</text>`;
+         (long ? `<text transform="translate(${l + i * cell + cell * 0.66},${t - 6}) rotate(-60)" font-size="11" fill="${C("--muted")}">${c}</text>`
+               : `<text x="${l + i * cell + cell / 2}" y="${t - 7}" font-size="11" text-anchor="middle" fill="${C("--muted")}">${c}</text>`);
     codes.forEach((d, j) => {
       const v = M[i][j];
       if (v == null) return;

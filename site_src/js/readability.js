@@ -21,12 +21,12 @@ Promise.all([load("readability"), load("meta")]).then(([r, m]) => {
     for (let y = 2023; y <= 2026; y++) s += `<text x="${X(y + "-01-01")}" y="${H - 7}" font-size="11" text-anchor="middle" fill="${C("--muted")}">${y}</text>`;
     L.forEach(se => {
       const hot = top.includes(se.code), pts = se.points.map(p => `${X(p[0])},${Y(p[1])}`);
-      s += `<path d="M${pts.join("L")}" fill="none" stroke="${hot ? C("--accent") : C("--muted")}" stroke-width="${hot ? 2.2 : 1}" opacity="${hot ? 1 : 0.45}" stroke-linejoin="round"><title>Platform ${se.code}</title></path>`;
+      s += `<path d="M${pts.join("L")}" fill="none" stroke="${hot ? C("--accent") : C("--muted")}" stroke-width="${hot ? 2.2 : 1}" opacity="${hot ? 1 : 0.45}" stroke-linejoin="round"><title>${se.code}</title></path>`;
       if (hot) { const p = se.points[se.points.length - 1]; s += `<text x="${X(p[0]) + 5}" y="${Y(p[1]) + 4}" font-size="12" font-weight="600" fill="${C("--accent")}">${se.code}</text>`; }
     });
     document.getElementById("spaghetti").innerHTML = svgEl(W, H, s, `${doc} length over time`);
     const big = L.slice().sort((a, b) => growth(b) - growth(a))[0];
-    document.getElementById("spagNote").textContent = `Words per document at each revision. Highlighted: the three that grew the most. Platform ${big.code}'s went from ${big.points[0][1].toLocaleString()} to ${big.points[big.points.length - 1][1].toLocaleString()} words.`;
+    document.getElementById("spagNote").textContent = `Words per document at each revision. Highlighted: the three that grew the most. ${big.code}'s went from ${big.points[0][1].toLocaleString()} to ${big.points[big.points.length - 1][1].toLocaleString()} words.`;
   };
   document.querySelectorAll("#docPick button").forEach(b => b.addEventListener("click", () => {
     document.querySelectorAll("#docPick button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); draw(b.dataset.doc);

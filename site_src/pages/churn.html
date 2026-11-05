@@ -5,8 +5,12 @@
 <h2>Surveillance log</h2><p>Every quarter of watching, logged. Lines with AI edits are underlined.</p><div class="quote" id="log" style="font-family:var(--type);font-size:14px;line-height:1.8;max-height:320px;overflow:auto"></div>
 
 <p>That left <b><span id="n"></span> real revisions</b> across 25 platforms in a little over four years.</p>
-<figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="perq"></div><figcaption>Revisions per quarter. Blue: revisions that added, removed or changed at least one sentence mentioning AI.</figcaption></figure>
+<figure class="evidence"><div class="label">Exhibit A</div><div class="chart" id="perq"></div><figcaption>Revisions per quarter. Red: revisions that added, removed or changed at least one sentence mentioning AI.</figcaption></figure>
 <p id="aiText"></p>
+<div class="finding"><span class="marker">1</span><div>
+  <p class="claim">The policy you agreed to is probably not the one in force.</p>
+  <p class="proof"><span data-s="churn.n">865</span> real revisions across 25 platforms · <span data-s="churn.ai_share" data-f="pct">13</span>% touched AI language · half change 8 sentences or fewer, one in ten changes 258 or more</p>
+</div></div>
 
 <h2>How big a revision is</h2>
 <p>The size of a revision is badly skewed. Half change <span id="med"></span> sentences or fewer, a typo or a date. But one in ten changes <span id="p90"></span> or more, and the largest single revision touched <span id="max"></span> sentences: effectively a new document under the old name.</p>

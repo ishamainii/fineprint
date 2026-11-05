@@ -15,7 +15,7 @@ load("model").then(m => {
   const run = () => {
     const r = score(input.value), pct = Math.round(r.p * 100);
     const top = r.feats.slice().sort((a, b) => Math.abs(b.contrib) - Math.abs(a.contrib)).slice(0, 8);
-    out.innerHTML = `<b style="font-family:var(--type);font-size:22px;color:${r.p >= 0.5 ? "var(--red)" : "var(--ink-soft)"}">${pct}% training clause</b>` +
+    out.innerHTML = `<b style="font-family:var(--mono);font-size:22px;color:${r.p >= 0.5 ? "var(--red)" : "var(--ink-soft)"}">${pct}% training clause</b>` +
       `<small>Pushing toward: ${top.filter(f => f.contrib > 0).map(f => `<ins>${esc(f.g)}</ins>`).join(", ") || "nothing"}. Pushing away: ${top.filter(f => f.contrib < 0).map(f => esc(f.g)).join(", ") || "nothing"}. ` +
       `${r.known} of ${r.total} words and word pairs are in the model's vocabulary.</small>`;
   };
@@ -80,4 +80,16 @@ load("model").then(m => {
   const errs = m.examples.map(e => ({ ...e, gap: Math.abs(e.p - e.label) })).sort((a, b) => b.gap - a.gap).slice(0, 8);
   document.getElementById("errors").innerHTML = `<tr><th>sentence</th><th class="num">my label</th><th class="num">model</th></tr>` +
     errs.map(e => `<tr><td>${esc(e.text)}</td><td class="num">${e.label ? "clause" : "not"}</td><td class="num">${Math.round(e.p * 100)}%</td></tr>`).join("");
+});
+
+// calibration: predicted probability against observed frequency, from cross-validation
+load("stats").then(S => {
+  const C5 = S.model.calibration, W = 360, m = 40, sz = W - m - 14, H = sz + 48, x = v => m + v * sz, y = v => 14 + (1 - v) * sz;
+  let s = `<rect x="${m}" y="14" width="${sz}" height="${sz}" fill="none" stroke="${C("--line")}"/>` +
+    `<line x1="${x(0)}" y1="${y(0)}" x2="${x(1)}" y2="${y(1)}" stroke="${C("--muted")}" stroke-dasharray="4 4"/>`;
+  [0, 0.5, 1].forEach(v => { s += `<text x="${x(v)}" y="${y(0) + 16}" font-size="11" text-anchor="middle" fill="${C("--muted")}">${v}</text><text x="${m - 6}" y="${y(v) + 4}" font-size="11" text-anchor="end" fill="${C("--muted")}">${v}</text>`; });
+  s += `<text x="${x(0.5)}" y="${H - 4}" font-size="11" text-anchor="middle" fill="${C("--muted")}">predicted probability</text><text transform="translate(12,${y(0.5)}) rotate(-90)" font-size="11" text-anchor="middle" fill="${C("--muted")}">observed share</text>`;
+  s += `<polyline points="${C5.map(c => `${x(c.predicted)},${y(c.observed)}`).join(" ")}" fill="none" stroke="${C("--accent")}" stroke-width="2"/>`;
+  C5.forEach(c => { s += `<circle cx="${x(c.predicted)}" cy="${y(c.observed)}" r="${3 + Math.sqrt(c.n)}" fill="${C("--accent")}" fill-opacity=".35" stroke="${C("--accent")}"><title>${c.n} sentences: predicted ${c.predicted}, observed ${c.observed}</title></circle>`; });
+  document.getElementById("calib").innerHTML = svgEl(W, H + 4, s, "Calibration of the classifier");
 });
