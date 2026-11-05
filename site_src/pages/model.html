@@ -2,20 +2,20 @@
 <!-- stamp: F1 0.89 -->
 <!-- dek: The classifier that finds training clauses, running live in your browser, and an honest account of where it beats keyword search and where it doesn't. -->
 <div class="plain"><b>In plain terms</b><p>I trained a small program to recognise these clauses. It beats a simple keyword search on the apps it learned from, but it does worse on apps it has never seen.</p></div>
-<p>Keyword search for "train" plus "AI" misses a lot, because companies often say "develop and improve AI" or "machine learning models" without the word "train." So I hand-labelled 133 distinct AI sentences (does this say people's data is used to train, develop or improve AI?) and trained a small model: TF-IDF features over words and word pairs, fed to logistic regression. Company and product names are blacked out before training, so the model has to learn how a training clause is worded, not which company tends to write one.</p>
-<p>The model below is the real trained model, exported to the browser: same vocabulary, same weights, same maths.</p>
+<p>A keyword search for "train" and "AI" misses many clauses, because companies often write "develop and improve AI" or "machine learning models" instead. So I labelled 133 distinct AI sentences by hand and trained a small model on them. It uses TF-IDF features of words and word pairs and a logistic regression. Company and product names are removed before training, so the model learns how a training clause is worded rather than which company tends to write one.</p>
+<p>The model on this page is the trained model itself, exported to run in your browser with the same vocabulary and weights.</p>
 
 <div class="finding"><span class="marker">1</span><div>
   <p class="claim">It finds clauses better than keyword search: an F1 score of <em>0.89</em> against 0.77.</p>
-  <p class="proof">F1 balances catching every real clause against not flagging the wrong ones; 1 is perfect. I scored it 20 times on sentences it hadn't trained on, and it stayed between 0.84 and 0.91.</p>
+  <p class="proof">F1 balances finding every real clause against flagging wrong ones. A score of 1 is perfect. I scored it 20 times on sentences it hadn't trained on, and it stayed between 0.84 and 0.91.</p>
 </div></div>
-<p>With <span data-s="model.n_labelled">133</span> labelled sentences, the interval on the improvement only just clears zero. The model is probably better than keyword search on this kind of data, but 133 labels can't make that airtight.</p>
+<p>With only <span data-s="model.n_labelled">133</span> labelled sentences the improvement is not certain. The model is probably better than keyword search on this data, but the uncertainty range on the gain only just stays above zero.</p>
 
 <div class="finding"><span class="marker">2</span><div>
   <p class="claim">On companies it has never seen, it drops to <em>0.69</em>, worse than keyword search.</p>
   <p class="proof">To test this I hid every sentence from a few companies during training and scored the model only on those companies.</p>
 </div></div>
-<p>This is the result I'd want a reviewer to see first. Ordinary cross-validation lets sentences from the same company sit on both sides of the split, and each company has a house style, so part of the 0.89 is the model recognising house style rather than meaning. For finding clauses at the 25 platforms in this archive, which is all this project uses it for, the ordinary estimate is the relevant one. For a new company's policy, trust the keyword rule, or label a few of its sentences first. That's why, in this project, an unlabelled sentence only counts as a training clause when the model and the keyword rule agree.</p>
+<p>This is the most important limitation. Ordinary testing lets sentences from the same company appear in both training and test data. Each company has its own writing style, so part of the 0.89 comes from recognising style rather than meaning. For the 25 platforms in this archive, which is all the model is used for, the ordinary score is the relevant one. For a new company the keyword rule is safer. For that reason an unlabelled sentence only counts as a training clause here when the model and the keyword rule agree.</p>
 
 <figure class="evidence"><div class="label">Exhibit A</div><div class="chart min" id="calib"></div><figcaption>Calibration: cross-validated probabilities grouped into five bins, against how often sentences in each bin really were training clauses. Points on the diagonal mean a "70%" from the model really is right about 70% of the time.</figcaption></figure>
 
@@ -26,15 +26,15 @@
 <div class="quote" id="out" aria-live="polite"></div>
 
 <h2>Choosing a threshold</h2>
-<p>The model outputs a probability, and where you draw the line trades precision (of what it flags, how much is right) against recall (of the real clauses, how many it finds). These numbers come from one round of 5-fold cross-validation, so every score is on a sentence the model never trained on. (One round can be a little lucky or unlucky; averaged over twenty rounds with different splits, F1 is 0.887.)</p>
+<p>The model outputs a probability. Moving the threshold trades precision against recall. Precision is how much of what it flags is correct, and recall is how many real clauses it finds. These numbers come from one round of 5-fold cross-validation, so every score is on a sentence the model did not train on. One round can be slightly lucky or unlucky. Averaged over twenty rounds, F1 is 0.887.</p>
 <div class="controls"><label for="thr">Threshold</label><input type="range" id="thr" min="0.05" max="0.95" step="0.05" value="0.5" style="flex:1"><b id="thrV">0.50</b></div>
 <div class="tablewrap"><table id="cm"></table></div>
 <figure class="evidence"><div class="label">Exhibit B</div><div class="chart" id="pr"></div><figcaption>Precision against recall at every threshold. The dot is the current threshold; the square is the keyword rule.</figcaption></figure>
 
 <h2>What it learned</h2>
-<p>The largest weights in each direction. Words that push toward "training clause" are about building and improving; words that push away are about using a feature, or rules for users.</p>
+<p>These are the largest weights in each direction. Words that push toward "training clause" are about building and improving. Words that push away are about using a feature or about rules for users.</p>
 <figure class="evidence"><div class="label">Exhibit C</div><div class="chart" id="weights"></div></figure>
 
 <h2>Where it's wrong</h2>
-<p>The cross-validated predictions that disagree most with my labels, shown as the model sees them, with names blacked out. Some are model mistakes, and some are honestly borderline.</p>
+<p>The cross-validated predictions that disagree most with my labels, shown as the model sees them, with names blacked out. Some are model mistakes and some are genuinely borderline.</p>
 <div class="tablewrap"><table id="errors"></table></div>
