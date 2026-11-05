@@ -62,7 +62,9 @@ const noir = (() => {
 
   async function start() {
     if (!ac) init();
-    await ac.resume(); on = true;
+    await ac.resume();
+    if (on) return;                                   // already running (two triggers can race on page load)
+    on = true;
     master.gain.cancelScheduledValues(ac.currentTime); master.gain.setValueAtTime(master.gain.value, ac.currentTime); master.gain.linearRampToValueAtTime(0.9, ac.currentTime + 1.5);
     if (!rainNode) rainNode = rain(); piano();
   }
@@ -121,8 +123,16 @@ const noir = (() => {
     const b = document.createElement("button"); b.className = "sound"; b.setAttribute("aria-pressed", "false");
     b.textContent = "♪ sound off"; document.body.appendChild(b);
     const set = v => { b.setAttribute("aria-pressed", String(v)); b.textContent = v ? "♪ sound on" : "♪ sound off"; try { localStorage.setItem("fp-sound", v ? "on" : "off"); } catch {} };
-    b.addEventListener("click", () => { if (on) { stop(); set(false); } else { start(); set(true); } });
-    if (pref) { const once = () => { start(); set(true); removeEventListener("pointerdown", once); }; addEventListener("pointerdown", once); }  // browsers need a click first
+    b.addEventListener("click", e => { e.stopPropagation(); if (on) { stop(); set(false); } else { start(); set(true); } });
+    // the choice carries across pages. browsers only allow audio after a gesture on each page,
+    // so if sound was on, the button already says so and the score resumes on the first tap or key.
+    if (pref) {
+      set(true);
+      const evs = ["pointerdown", "keydown", "touchstart"];
+      const once = () => { evs.forEach(ev => removeEventListener(ev, once, true)); if (b.getAttribute("aria-pressed") === "true") start(); };
+      evs.forEach(ev => addEventListener(ev, once, true));
+      start().catch(() => {});                        // some browsers allow it straight away after a same-site navigation
+    }
     document.querySelectorAll(".chapters a, .tab").forEach(a => a.addEventListener("pointerenter", () => fx.paper()));
     wire();
     document.querySelectorAll(".fineprint-lens").forEach(lens);
