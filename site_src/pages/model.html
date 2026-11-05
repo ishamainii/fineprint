@@ -5,14 +5,14 @@
 <p>The model below is the real trained model, exported to the browser: same vocabulary, same weights, same maths.</p>
 
 <div class="finding"><span class="marker">1</span><div>
-  <p class="claim">F1 <em><span data-s="model.f1_mean">0.887</span></em> against <span data-s="model.rule_f1">0.766</span> for keyword search.</p>
-  <p class="proof">20 repeats of stratified 5-fold cross-validation, F1 sd <span data-s="model.f1_sd">0.021</span>, range <span data-s="model.f1_range">0.836–0.914</span> · paired bootstrap of the F1 gain: 95% CI <span data-s="model.f1_gain_ci">−0.006–0.19</span>, one-sided p = <span data-s="model.p_model_not_better">0.037</span> · Brier score <span data-s="model.brier">0.108</span> vs <span data-s="model.brier_baseline">0.238</span> for always guessing the base rate</p>
+  <p class="claim">It finds clauses better than keyword search: an F1 score of <em>0.89</em> against 0.77.</p>
+  <p class="proof">F1 balances catching every real clause against not flagging the wrong ones; 1 is perfect. I scored it 20 times on sentences it hadn't trained on, and it stayed between 0.84 and 0.91.</p>
 </div></div>
 <p>With <span data-s="model.n_labelled">133</span> labelled sentences, the interval on the improvement only just clears zero. The model is probably better than keyword search on this kind of data, but 133 labels can't make that airtight.</p>
 
 <div class="finding"><span class="marker">2</span><div>
-  <p class="claim">On companies it has never seen, it drops to <em><span data-s="model.f1_unseen_platforms">0.692</span></em>, below the keyword rule.</p>
-  <p class="proof">grouped 5-fold cross-validation: every sentence from a platform is held out together, so the model is scored only on companies absent from its training data</p>
+  <p class="claim">On companies it has never seen, it drops to <em>0.69</em>, worse than keyword search.</p>
+  <p class="proof">To test this I hid every sentence from a few companies during training and scored the model only on those companies.</p>
 </div></div>
 <p>This is the result I'd want a reviewer to see first. Ordinary cross-validation lets sentences from the same company sit on both sides of the split, and each company has a house style, so part of the 0.89 is the model recognising house style rather than meaning. For finding clauses at the 25 platforms in this archive, which is all this project uses it for, the ordinary estimate is the relevant one. For a new company's policy, trust the keyword rule, or label a few of its sentences first. That's why, in this project, an unlabelled sentence only counts as a training clause when the model and the keyword rule agree.</p>
 

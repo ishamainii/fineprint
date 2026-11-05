@@ -4,34 +4,34 @@
   <p class="time" id="clock" aria-hidden="true"></p>
   <h1 data-type>The Fine Print</h1>
   <p class="sub">a data investigation</p>
-  <p class="lede">By August 2026, <b><span data-s="arrival.n">13</span> of the 25 platforms</b> most people use had written one new sentence into their rules: the one that lets them train AI on what you post. The typical one sits halfway down the document.</p>
-  <p class="scrollcue">open the case</p>
+  <p class="lede">If you post on TikTok, Reddit, LinkedIn or Instagram, the rules you agreed to now let the company use your posts to build AI. Most people never noticed, because the change happened inside a document almost nobody reads. <b>I read all of them</b>, every version since 2022, to find out who changed what, when, and where they put it.</p>
+  <p class="scrollcue">scroll</p>
 </section>
 
 <section class="brief">
   <h2>The case</h2>
-  <p class="lead">Every platform keeps a privacy policy and a terms of service, and they change, quietly and often. Open Terms Archive saves a copy each time the text moves. I pulled every saved version for 25 platforms, <span data-s="meta.versions">2,283</span> documents split into <span data-s="meta.sentences">937,131</span> sentences, and read them the way an investigator reads a paper trail: who changed what, when, in what words, and where they put it.</p>
-  <p>The findings below are each tested, not eyeballed. Uncertainty comes from a bootstrap that resamples whole platforms, because one company's lawyers write all of its documents; tests are run across platforms for the same reason. The method, the code and the data are public.</p>
+  <p class="lead">Every app has a privacy policy and terms of service, and companies rewrite them quietly, sometimes every week. An archive called Open Terms Archive saves a copy every time the wording changes. I took every saved version for 25 platforms, <span data-s="meta.versions">2,283</span> documents and almost a million sentences, and went through them like a paper trail.</p>
+  <p>Here is what I found. Every number below was checked so that one company, or one lucky sample, can't produce it on its own; <a href="methods.html">Forensics</a> has the full method.</p>
 
   <div class="finding"><span class="marker">1</span><div>
-    <p class="claim">AI language in force grew <em><span data-s="growth.ratio">15</span>×</em> in four years.</p>
-    <p class="proof">sentences mentioning AI per 10,000 words in force · first year vs latest year · 95% CI <span data-s="growth.ci">8.5–30.1</span>× · rose at <span data-s="growth.platforms_up">12</span> of the <span data-s="growth.up_or_down">14</span> platforms where it moved (sign test p = <span data-s="growth.sign_test_p">0.0065</span>) · <span data-s="growth.without_top.ratio">14.1</span>× even without Facebook, the biggest contributor</p>
+    <p class="claim">There's <em>15 times</em> as much AI language in these policies as in 2022.</p>
+    <p class="proof">In 2022 they had about one sentence on AI for every 18,000 words. Today it's one for every 1,200. The exact multiple depends on which platforms you count, anywhere from 8 to 30 times, but the direction isn't in doubt: it went up at 12 of the 14 platforms where it changed at all, and it's still 14 times with Facebook left out.</p>
   </div></div>
   <div class="finding"><span class="marker">2</span><div>
-    <p class="claim">Training clauses hedge <em><span data-s="hedging.ratio_of_means">2.05</span>×</em> as much as the rest of the same policy.</p>
-    <p class="proof">hedge words per 100 words, each platform's clauses vs its own other sentences · 95% CI <span data-s="hedging.ci">1.51–2.61</span>× · higher at <span data-s="hedging.higher_in_clause">9</span> of <span data-s="hedging.platforms">12</span> platforms (Wilcoxon p = <span data-s="hedging.wilcoxon_p">0.0034</span>)</p>
+    <p class="claim">The sentences about training AI are <em>twice as vague</em> as the rest of the same policy.</p>
+    <p class="proof">They lean on "may", "such as" and "to improve" about twice as often as the company's other sentences. I compared each company with itself, so one wordy legal team can't skew it, and 9 of the 12 did it, which is very unlikely to be chance.</p>
   </div></div>
   <div class="finding"><span class="marker">3</span><div>
     <p class="claim">The documents grew from <em>211,000</em> to <em>367,000</em> words, and got harder to read.</p>
-    <p class="proof">total words in force, every quarter · Kendall τ = <span data-s="trend.words_tau">0.94</span> for length, τ = <span data-s="trend.ease_tau">−0.76</span> for reading ease (both p &lt; 0.001) · reading all of them once: about <span data-s="readability.hours">25</span> hours</p>
+    <p class="proof">Reading every current one once would take you about <span data-s="readability.hours">25</span> hours. They got longer in 14 of the last 16 quarters, and their reading-ease score drifted down from about 42 to 38.</p>
   </div></div>
   <div class="finding"><span class="marker">4</span><div>
-    <p class="claim">The typical clause sits halfway down, filed under <em>legal bases</em>.</p>
-    <p class="proof">median training clause sits <span data-s="placement.median_clause" data-f="pct">49</span>% of the way through its document · most common headings: litigation, legitimate interests, third-party sources</p>
+    <p class="claim">The typical clause sits <em>halfway down</em>, under a legal heading.</p>
+    <p class="proof">Almost never under anything that says "AI". The most common headings above these sentences are about litigation, legitimate interests and third-party data, so you'd have to know the legal term to go looking.</p>
   </div></div>
 
   <h2>Read the fine print yourself</h2>
-  <p>Below is every training clause I found, set at the size these sentences actually reach most people. Run the glass over it.</p>
+  <p>This is every training clause I found, at the size most people actually encounter it. Move the magnifying glass over it.</p>
 </section>
 
 <div class="fineprint-lens" id="lens" aria-label="Every training clause found, set very small. Move the magnifying glass over it to read."></div>
@@ -39,21 +39,21 @@
 <section class="brief">
   <h2>Nine chapters</h2>
   <ol class="chapters">
-    <li><a href="arrival.html"><span class="no">CHAPTER 01</span><h3>The Confessions</h3><p>Who wrote the clause, when, and what they said. One dossier per platform.</p><span class="big"><b>13</b>of 25 confessed</span></a></li>
-    <li><a href="vocabulary.html"><span class="no">CHAPTER 02</span><h3>The Wiretap</h3><p>Four years of their vocabulary, word by word. Look up any of 2,000+ terms.</p><span class="big"><b><span data-s="growth.ratio">15</span>×</b>more AI language</span></a></li>
-    <li><a href="hedging.html"><span class="no">CHAPTER 03</span><h3>The Interrogation</h3><p>Each clause under the lamp, with every evasion lit up and counted.</p><span class="big"><b><span data-s="hedging.ratio_of_means">2.05</span>×</b>the hedging</span></a></li>
-    <li><a href="readability.html"><span class="no">CHAPTER 04</span><h3>The Paper Trail</h3><p>The documents got longer and harder to read, every quarter.</p><span class="big"><b>25</b>hours to read it all</span></a></li>
-    <li><a href="placement.html"><span class="no">CHAPTER 05</span><h3>The Burial</h3><p>Where in a document the AI language is, and which headings hide it.</p><span class="big"><b>49%</b>of the way down</span></a></li>
-    <li><a href="churn.html"><span class="no">CHAPTER 06</span><h3>The Stakeout</h3><p>Every edit, every quarter, and which ones touched AI.</p><span class="big"><b>865</b>real revisions</span></a></li>
-    <li><a href="templates.html"><span class="no">CHAPTER 07</span><h3>The Accomplices</h3><p>Did they copy each other? Fingerprinting every AI sentence.</p><span class="big"><b>1</b>pair shares wording</span></a></li>
-    <li><a href="model.html"><span class="no">CHAPTER 08</span><h3>The Polygraph</h3><p>The machine-learning detector behind the investigation. Feed it any sentence.</p><span class="big"><b><span data-s="model.f1_mean">0.89</span></b>F1</span></a></li>
-    <li><a href="methods.html"><span class="no">CHAPTER 09</span><h3>Forensics</h3><p>Data, the 800× faster search, the statistics, and what this can't prove.</p><span class="big"><b>800×</b>faster search</span></a></li>
+    <li><a href="arrival.html"><span class="no">Chapter 1</span><h3>The Confessions</h3><p>Who wrote the clause, when, and what they said. One dossier per platform.</p><span class="big"><b>13</b>of 25 confessed</span></a></li>
+    <li><a href="vocabulary.html"><span class="no">Chapter 2</span><h3>The Wiretap</h3><p>Four years of their vocabulary, word by word. Look up any of 2,000+ terms.</p><span class="big"><b><span data-s="growth.ratio">15</span>×</b>more AI language</span></a></li>
+    <li><a href="hedging.html"><span class="no">Chapter 3</span><h3>The Interrogation</h3><p>Each clause under the lamp, with every evasion lit up and counted.</p><span class="big"><b><span data-s="hedging.ratio_of_means">2.05</span>×</b>the hedging</span></a></li>
+    <li><a href="readability.html"><span class="no">Chapter 4</span><h3>The Paper Trail</h3><p>The documents got longer in 14 of 16 quarters, and slowly harder to read.</p><span class="big"><b>25</b>hours to read it all</span></a></li>
+    <li><a href="placement.html"><span class="no">Chapter 5</span><h3>The Burial</h3><p>Where in a document the AI language is, and which headings hide it.</p><span class="big"><b>49%</b>of the way down</span></a></li>
+    <li><a href="churn.html"><span class="no">Chapter 6</span><h3>The Stakeout</h3><p>Every edit, every quarter, and which ones touched AI.</p><span class="big"><b>865</b>real revisions</span></a></li>
+    <li><a href="templates.html"><span class="no">Chapter 7</span><h3>The Accomplices</h3><p>Did they copy each other? Fingerprinting every AI sentence.</p><span class="big"><b>1</b>pair shares wording</span></a></li>
+    <li><a href="model.html"><span class="no">Chapter 8</span><h3>The Polygraph</h3><p>The machine-learning detector behind the investigation. Feed it any sentence.</p><span class="big"><b><span data-s="model.f1_mean">0.89</span></b>F1</span></a></li>
+    <li><a href="methods.html"><span class="no">Chapter 9</span><h3>Forensics</h3><p>Data, the 800× faster search, the statistics, and what this can't prove.</p><span class="big"><b>800×</b>faster search</span></a></li>
   </ol>
   <p class="byline" style="margin-top:28px">By Isha Maini, November 2026. Data: Open Terms Archive (CC BY-SA 4.0).</p>
 </section>
 <script>
 // cold open: a timestamp for the first confession, typed like a case-file header
-(() => { const s = "02 DEC 2022 · TIKTOK · PRIVACY POLICY · FIRST TRAINING CLAUSE ON RECORD", el = document.getElementById("clock");
+(() => { const s = "December 2, 2022. TikTok adds one sentence to its privacy policy.", el = document.getElementById("clock");
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = s; return; }
   let i = 0; const t = setInterval(() => { el.textContent = s.slice(0, ++i); if (i >= s.length) clearInterval(t); }, 28); })();
 fetch("data/arrival.json").then(r => r.json()).then(d => {

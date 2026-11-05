@@ -59,8 +59,8 @@ for i, (slug, tab, num) in enumerate(PAGES):
     if slug == "index":
         main = body                        # the case board lays itself out
     else:
-        stamp = f'<span class="stamp big headstamp" data-slam>{meta["stamp"]}</span>' if "stamp" in meta else ""
-        main = (f'<main class="file">{stamp}<div class="casehead"><span>Chapter {num}</span><span>The Fine Print</span><span>An investigation by Isha Maini</span></div>'
+        stamp = ""                         # no rubber stamps on chapter pages
+        main = (f'<main class="file">{stamp}<div class="casehead"><span>Chapter {int(num)}</span><span>The Fine Print, by Isha Maini</span></div>'
                 f'<h1 data-type>{meta["title"]}</h1><p class="dek">{meta["dek"]}</p>{body}</main>')
     html = HEAD.format(title=f'{meta["title"]} | The Fine Print' if slug != "index" else meta["title"],
                        dek=meta["dek"].replace('"', "&quot;"), nav=this_nav) + main + FOOT.format(pager=pager, script=script)
